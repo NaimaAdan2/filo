@@ -7,7 +7,7 @@ const path = require('path');
 
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../pages/register.html'))
+      res.render('index', { layout: 'register' });
 
        // User.findOne({where: {username: req.body.username}})
         //.then(maybeuser => {
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
        // })
         //.catch(err => console.log(err))
 })
-    
+
 
 
 module.exports = router;

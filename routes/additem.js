@@ -6,10 +6,9 @@ const path = require('path');
 
 
 router.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname + '/../pages/additem.html'))
-    })
-    
+        res.render('index', { layout: 'additem' });
+})
 
 
-    module.exports = router; 
-    
+
+module.exports = router;

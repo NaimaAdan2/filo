@@ -5,18 +5,7 @@ const Item = require('../models/Items.js');
 const path = require('path');
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../pages/items.html'))
+    res.render('index', { layout: 'items' });
 })
 
-//router.get('/', (req, res) => 
- //   Item.findAll()
-   //  .then(items => {
-     //    console.log (items);
-       //  res.sendStatus(200);
-     //})
-     //.catch(err => console.log(err)));
-
-// add item 
-
-
-module.exports = router; 
+module.exports = router;
