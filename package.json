@@ -1,0 +1,23 @@
+{
+  "name": "filo",
+  "version": "1.0.0",
+  "description": "filo website",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "suaad",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
+    "pg": "^8.0.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
