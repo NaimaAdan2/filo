@@ -8,9 +8,6 @@ router.get('/', (req, res) => {
     Item.findAll()
     .then(items => {
       res.render('items', {
-        allowedProtoMethods: {
-          description: true
-        },
         layout: false,
         items
       })
