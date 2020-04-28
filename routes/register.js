@@ -7,7 +7,7 @@ const path = require('path');
 
 
 router.get('/', (req, res) => {
-      res.render('index', { layout: 'register' });
+      res.render('register', { layout: false });
 
        // User.findOne({where: {username: req.body.username}})
         //.then(maybeuser => {

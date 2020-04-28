@@ -7,8 +7,7 @@ const Item = require('../models/Items.js');
 
 
 router.get('/:id', (req, res) => {
-    Item.findAll({where: {
-      id: req.params.id}})
+    Item.findAll({where: {id: req.params.id}})
     .then(items => {
       res.render('item', { layout: false, items });
     })

@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize('FiLo','postgres','260912',{
     host:'localhost',
     dialect: 'postgres',
-    operatorsAliases: false, 
+    operatorsAliases: false,
 
     pool:{
         max: 5,
@@ -16,4 +16,3 @@ const sequelize = new Sequelize('FiLo','postgres','260912',{
 sequelize.sync()
 
 module.exports = sequelize;
-

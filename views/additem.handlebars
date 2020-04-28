@@ -28,34 +28,31 @@
 
 </nav>
 </br>
-<form action="action_page.php">
-    <div class="container">
-      <h1>Add Item</h1>
-      <p>Please fill in this form to add an item.</p>
-      <hr>
+<div class="container">
+  <form action="/additem" method="POST">
 
-      <label for="name"><b>Name of item</b></label>
-      <input type="text" placeholder="Enter name of the object" name="name" required>
+        <h1>Add Item</h1>
+        <p>Please fill in this form to add an item.</p>
+        <hr>
 
-      <label for="description"><b>Description</b></label>
-      <input type="text" placeholder="Enter Description" name="Description" required>
+        <label for="description"><b>Description</b></label>
+        <input type="text" placeholder="Enter Description" name="description">
 
-      <label for="category"><b>Category</b></label>
-      <input type="text" placeholder="Enter item category" name="category" required>
+        <label for="category"><b>Category</b></label>
+        <input type="text" placeholder="Enter item category" name="category">
 
-      <label for="colour"><b>Colour</b></label>
-      <input type="text" placeholder="Enter colour" name="Colour" required>
+        <label for="colour"><b>Colour</b></label>
+        <input type="text" placeholder="Enter colour" name="colour" required>
 
-      <label for="date"><b>Date lost</b></label>
-      <input type="text" placeholder="Enter date lost" name="date" required>
+        <label for="date"><b>Date lost</b></label>
+        <input type="text" placeholder="Enter date lost" name="date" required>
 
-      <label for="imageURL"><b>Image url</b></label>
-      <input type="text" placeholder="Enter imageURL" name="imageURL" required>
+        <label for="imageURL"><b>Image url</b></label>
+        <input type="text" placeholder="Enter imageURL" name="imageURL" required>
 
-      <button type="submit" class="submitbtn">Submit</button>
-    </div>
-
+        <button type="submit" class="submitbtn">Submit</button>
   </form>
+</div>
 
 
     <!-- Optional JavaScript -->

@@ -16,6 +16,7 @@ db.authenticate()
 
 const app = express();
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Handlebars
 // app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
@@ -42,6 +43,7 @@ app.use('/login', require("./routes/login.js"));
 app.use('/item', require("./routes/item.js"));
 app.use('/additem', require("./routes/additem.js"));
 app.use('/itemadmin', require("./routes/itemadmin.js"));
+app.use('/requests', require("./routes/requests.js"));
 
 
 
