@@ -3,7 +3,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
 const Handlebars = require('handlebars');
-
+const session = require('client-sessions');
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 
 //Database
@@ -17,6 +17,12 @@ db.authenticate()
 const app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(session({
+  cookieName: 'session',
+  secret: 'random_string_goes_here',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+}));
 
 // Handlebars
 // app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
@@ -40,10 +46,12 @@ app.get('/',(req, res) => res.render('landing', { layout: false }));
 app.use('/items', require("./routes/items.js"));
 app.use('/register', require("./routes/register.js"));
 app.use('/login', require("./routes/login.js"));
+app.use('/logout', require("./routes/logout.js"));
 app.use('/item', require("./routes/item.js"));
 app.use('/additem', require("./routes/additem.js"));
 app.use('/itemadmin', require("./routes/itemadmin.js"));
 app.use('/requests', require("./routes/requests.js"));
+
 
 
 
