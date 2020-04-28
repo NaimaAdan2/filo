@@ -39,16 +39,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
     <body class="text-center">
-        <form class="form-signin">
+    <form class="form-signin" action="/login" method=POST>
       <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="username" class="sr-only">username</label>
-      <input type="username" id="username" class="form-control" placeholder="username" required="" autofocus="">
+      <input type="username" name="username" class="form-control" placeholder="username" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+      <input type="password" name="password" class="form-control" placeholder="Password" required>
 
-      </div>
-      <input class="btn btn-lg btn-primary btn-block" type="button" value="Sign in" onclick="location.href='items';" />
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign in" />
     </form>
 
     <!-- Optional JavaScript -->

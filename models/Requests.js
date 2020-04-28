@@ -2,7 +2,10 @@ const Sequelize = require('sequelize');
 const db = require('../config/database');
 
 const Request = db.define('Requests',{
-    username:{
+    firstname:{
+        type: Sequelize.STRING
+    },
+    lastname:{
         type: Sequelize.STRING
     },
     itemID:{

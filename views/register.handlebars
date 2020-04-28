@@ -35,27 +35,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <form action="action_page.php">
+    <form action="/register" method=POST>
       <div class="container">
         <h1>Register</h1>
         <p>Please fill in this form to become a registered user.</p>
         <hr>
 
         <label for="firstname"><b>First name</b></label>
-        <input type="text" placeholder="Enter First Name" name="first name" required>
+        <input type="text" placeholder="Enter First Name" name="firstname" required>
 
         <label for="lastname"><b>Last Name</b></label>
-        <input type="text" placeholder="Enter Last Name" name="last name" required>
+        <input type="text" placeholder="Enter Last Name" name="lastname" required>
 
-        <label for="email"><b>Username</b></label>
+        <label for="username"><b>Username</b></label>
         <input type="text" placeholder="Enter username" name="username" required>
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
 
         <button type="submit" class="registerbtn">Register</button>
       </div>
-
     </form>
 
     <!-- Optional JavaScript -->

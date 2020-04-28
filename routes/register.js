@@ -7,20 +7,23 @@ const path = require('path');
 
 
 router.get('/', (req, res) => {
-      res.render('register', { layout: false });
+    res.render('register', { layout: false });
+})
 
-       // User.findOne({where: {username: req.body.username}})
-        //.then(maybeuser => {
-          //  if (!maybeuser) {
-            //    return User.create(req.body)
-              //  .then(user => {
-                //    res.send("Created user")
-                //})
-            //} else {
-              //  res.send("Already exists")
-            //}
-       // })
-        //.catch(err => console.log(err))
+router.post('/', (req, res) => {
+    req.body.isAdmin = false
+    User.findOne({where: {username: req.body.username}})
+     .then(maybeuser => {
+        if (!maybeuser) {
+            return User.create(req.body)
+            .then(user => {
+                res.redirect("/items")
+             })
+         } else {
+            res.redirect("/register")
+         }
+    })
+   .catch(err => console.log(err))
 })
 
 

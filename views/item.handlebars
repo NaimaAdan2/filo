@@ -36,11 +36,24 @@
       <div class="row">
             <img src={{imageURL}} />
             <div class="card-body">
+              <h1> Item description </h1>
               <p class="card-text">{{description}}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Request</button>
-                </div>
+              <form action="/requests/{{id}}" method="POST">
+                <div class="container">
+                  <h1>Request Item</h1>
+                  <p>Please fill in this form to request the lost item.</p>
+                  <hr>
+
+                  <label for="firsname"><b>First Name</b></label>
+                  <input type="text" placeholder="Enter Firstname" name="firstname" required>
+
+                  <label for="lastname"><b>Last Name</b></label>
+                  <input type="text" placeholder="Enter Last Name" name="lastname" required>
+
+                  <label for="description"><b>description</b></label>
+                  <input type="text" placeholder="Enter decscription" name="description" required>
+
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">Request</button>
               </div>
             </div>
           </div>

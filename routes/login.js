@@ -7,16 +7,20 @@ const path = require('path');
 
 router.get('/', (req, res) => {
         res.render('login', { layout: false });
-        // return User.findOne({where: {username: req.body.username, password: req.body.password}})
-        // .then(maybeuser => {
-        //     if (!maybeuser) {
-        //         return res.send("unknown user")
-        //     } else {
-        //         return res.send("logged in")
-        //     }
+})
 
-        // })
-        // .catch(err => console.log(err))
+router.post('/', (req, res) => {
+  return User.findOne({where: {username: req.body.username, password: req.body.password}})
+  .then(maybeuser => {
+    console.log("Maybe User: " + maybeuser)
+      if (!maybeuser) {
+          return res.redirect("/login")
+      } else {
+          return res.redirect("/items")
+      }
+
+  })
+  .catch(err => console.log(err))
 })
 
 

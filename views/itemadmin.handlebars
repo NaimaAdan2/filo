@@ -37,6 +37,7 @@
           <div class="row">
                 <img src={{imageURL}} />
                 <div class="card-body">
+                  <h1> Item description </h1>
                   <p class="card-text">{{description}}</p>
                 </div>
               </div>
@@ -47,12 +48,14 @@
     </div>
     {{#each unresolvedRequests}}
       <div class="container">
-        <div> Name: {{username}} </div>
+        <div> Name: {{firstname}} {{lastname}}  </div>
         <div> Reason: {{description}} </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary">Approve Request</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">Deny Request</button>
-        </div>
+        <form action="/itemadmin/{{id}}" method="POST">
+          <div class="btn-group">
+            <button type="submit" class="btn btn-sm btn-outline-secondary" name="requestStatus" value="accepted">Approve Request</button>
+            <button type="submit" class="btn btn-sm btn-outline-secondary" name="requestStatus" value="denied">Deny Request</button>
+          </div>
+        </form>
       </div>
     {{/each}}
     <div class="container">
