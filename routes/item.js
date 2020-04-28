@@ -6,7 +6,7 @@ const path = require('path');
 
 
 router.get('/', (req, res) => {
-    res.render('index', { layout: 'item' });
+    res.render('item', { layout: false });
 })
 
 

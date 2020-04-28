@@ -17,7 +17,10 @@ const Item = db.define('Items',{
     requestStatus:{
         type: Sequelize.ENUM("requested", "not requested", "accepted", "denied")
     },
+    imageURL:{
+        type: Sequelize.STRING
+    },
 
-}) 
+})
 
 module.exports = Item;

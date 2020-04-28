@@ -6,7 +6,7 @@ const path = require('path');
 
 
 router.get('/', (req, res) => {
-        res.render('index', { layout: 'login' });
+        res.render('login', { layout: false });
         // return User.findOne({where: {username: req.body.username, password: req.body.password}})
         // .then(maybeuser => {
         //     if (!maybeuser) {

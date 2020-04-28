@@ -5,7 +5,17 @@ const Item = require('../models/Items.js');
 const path = require('path');
 
 router.get('/', (req, res) => {
-    res.render('index', { layout: 'items' });
+    Item.findAll()
+    .then(items => {
+      res.render('items', {
+        allowedProtoMethods: {
+          description: true
+        },
+        layout: false,
+        items
+      })
+    })
+    .catch(err => console.log("Error:" + err))
 })
 
 module.exports = router;
