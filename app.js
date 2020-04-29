@@ -6,7 +6,7 @@ const Handlebars = require('handlebars');
 const session = require('client-sessions');
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 
-//Database
+//Get DB object and run seeding of admin user
 const db = require('./config/database.js');
 
 //testing DB
@@ -14,9 +14,12 @@ db.authenticate()
 .then(() => console.log('Database connected...'))
 .catch(err => console.log('Error:' + err))
 
+// Set up express server
 const app = express();
+// Use middleware to allow for json + form requests
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
+// Use middleware to create sessions
 app.use(session({
   cookieName: 'session',
   secret: 'random_string_goes_here',
@@ -24,7 +27,7 @@ app.use(session({
   activeDuration: 5 * 60 * 1000,
 }));
 
-// Handlebars
+// Set up handlebars as the rendering engine
 // app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 // When connecting Handlebars to the Express app...
@@ -39,6 +42,7 @@ app.engine('handlebars', exphbs({
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Return the landing page on requests to the / path
 app.get('/',(req, res) => res.render('landing', { layout: false, isLoggedIn: req.session && req.session.user }));
 
 
@@ -51,9 +55,6 @@ app.use('/item', require("./routes/item.js"));
 app.use('/additem', require("./routes/additem.js"));
 app.use('/itemadmin', require("./routes/itemadmin.js"));
 app.use('/requests', require("./routes/requests.js"));
-
-
-
 
 
 const PORT = process.env.PORT || 2013;

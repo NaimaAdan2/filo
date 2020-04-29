@@ -5,6 +5,11 @@ const Item = require('../models/Items.js');
 const path = require('path');
 const {isLoggedIn} = require("./util.js")
 
+
+/*
+Get request endpoint for getting all items from the item table.
+Sends back a 500 if there is an error and a 401 if the user is not logged in
+*/
 router.get('/', (req, res) => {
     isLoggedIn(req, res)
     Item.findAll()
@@ -20,7 +25,10 @@ router.get('/', (req, res) => {
         items
       })
     })
-    .catch(err => console.log("Error:" + err))
+    .catch(err => {
+      console.log("Could not get items: " + err))
+      res.sendStatus(500)
+    });
 })
 
 module.exports = router;
