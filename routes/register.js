@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  req.body.password = bcrypt.hashSync(req.body.password, 10);
     User.findOne({where: {username: req.body.username}})
      .then(maybeuser => {
         if (!maybeuser) {

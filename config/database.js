@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const bcrypt = require('bcrypt');
 
 const sequelize = new Sequelize('FiLo','postgres','260912',{
     host:'localhost',
@@ -18,7 +19,7 @@ const seedUsers = () => {
     username: "admin",
     firstname: "admin",
     lastname: "admin",
-    password: "admin",
+    password: bcrypt.hashSync("admin", 10),
     isAdmin: true
   })
 }

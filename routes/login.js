@@ -14,19 +14,18 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  return User.findOne({where: {username: req.body.username, password: req.body.password}})
+  return User.findOne({where: {username: req.body.username}})
   .then(maybeuser => {
-      if (!maybeuser) {
-          req.session.user = null
-          res.redirect("/login")
+      console.log("Req Password: " + req.body.password)
+      if (maybeuser && bcrypt.compareSync(req.body.password, maybeuser.password)) {
+        req.session.user = maybeuser
+        res.redirect("/items")
       } else {
-          req.session.user = maybeuser
-          res.redirect("/items")
+        res.render('login', {layout: false, unknownUser: true})
       }
   })
   .catch(err => console.log(err))
 })
-
 
 
 module.exports = router;
