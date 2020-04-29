@@ -13,6 +13,22 @@ const sequelize = new Sequelize('FiLo','postgres','260912',{
     },
 })
 
-sequelize.sync()
+const seedUsers = () => {
+  sequelize.model('Users').create({
+    username: "admin",
+    firstname: "admin",
+    lastname: "admin",
+    password: "admin",
+    isAdmin: true
+  })
+}
+
+
+sequelize
+.sync()
+.then(() => sequelize.sync({force: true}))
+.then(seedUsers)
+.then(() => console.log("Seeded Users"))
+
 
 module.exports = sequelize;

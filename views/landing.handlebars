@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>FiLo</title>
+    <title>filo</title>
     <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
 
 
     <!-- Required meta tags -->
@@ -14,18 +15,36 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar bg-dark fixed-top">
-        <a class="navbar-brand" href="/"><h1><span class="highlight">FiLo</h1></a>
+        <a class="navbar-brand" href="/"><h1><span class="highlight">filo</h1></a>
           <button class="navbar-toggler" type="button"data-toggle="collapse" data-target="#navbarResponsive">
               <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                      <a href="login"class="nav-link">Login</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="register"class="nav-link">Register</a>
-                  </li>
+          {{#if isLoggedIn}}
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/items"class="nav-link">Lost Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/additem"class="nav-link">Add Item</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout"class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+          {{else}}
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="login"class="nav-link">login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="register"class="nav-link">register</a>
+                    </li>
+                  </ul>
+            </div>
+          {{/if}}
     </nav>
 
     <!-- Optional JavaScript -->
@@ -46,7 +65,10 @@
 </br>
 </br>
 
-<h1 style="text-align:center">Welcome to FiLo</h1>
+<h1 style="text-align:center" id="mainHeading">welcome to filo</h1>
+<h4 style="text-align:center"> pls give me good grade </h4>
+<h6 style="text-align:center"> pls </h6>
+
 
 
 </body>

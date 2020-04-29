@@ -3,6 +3,7 @@
   <head>
     <title>Register</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,15 +18,32 @@
           <button class="navbar-toggler" type="button"data-toggle="collapse" data-target="#navbarResponsive">
               <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                      <a href="login"class="nav-link">Login</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="register"class="nav-link">Register</a>
-                  </li>
-        </ul>
+          {{#if isLoggedIn}}
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/items"class="nav-link">Lost Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/additem"class="nav-link">Add Item</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout"class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+          {{else}}
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="login"class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="register"class="nav-link">Register</a>
+                    </li>
+                  </ul>
+            </div>
+          {{/if}}
         </nav>
     </br>
 </br>
@@ -36,7 +54,7 @@
   </head>
   <body>
     <form action="/register" method=POST>
-      <div class="container">
+      <div class="container" id="registerContainer">
         <h1>Register</h1>
         <p>Please fill in this form to become a registered user.</p>
         <hr>

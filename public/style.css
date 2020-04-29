@@ -1,15 +1,61 @@
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
 
 h1 {
 color: black
 }
 
-.form-signin {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+* {
+  font-family: 'Raleway', sans-serif;
+}
+html, body {
+  background-color: #f8f9fa!important
 }
 
+#mainHeading {
+  font-size: 4.5rem
+}
+
+.container.form {
+  width: 50%;
+  margin-top: 10%
+}
+
+#registerContainer, container.requests {
+  width: 50%
+}
+
+.itemContainer {
+  /* width: 50% */
+}
+
+.highlight {
+  color: rgba(255,255,255,.5)
+}
+
+.highlight:hover {
+  color: rgba(255,255,255,.75)
+}
+
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.img {
+  width: 100%
+}
+
+.container.item {
+  width: 50%;
+  padding-top: 7%
+}
 
 
 /* Add padding to containers */
@@ -53,5 +99,3 @@ hr {
 .registerbtn:hover {
   opacity:1;
 }
-
-

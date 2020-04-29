@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../config/database');
 const User = require('../models/Users.js')
 const path = require('path');
-
+const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
   if (req.session && req.session.user) {

@@ -10,15 +10,20 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark navbar bg-dark fixed-top">
-        <a class="navbar-brand" href="#"><h1><span class="highlight">FiLo</h1></a>
+        <a class="navbar-brand" href="/"><h1><span class="highlight">FiLo</h1></a>
           <button class="navbar-toggler" type="button"data-toggle="collapse" data-target="#navbarResponsive">
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a href="/items"class="nav-link">Lost Items</a>
+                  </li>
                   <li class="nav-item">
                       <a href="/additem"class="nav-link">Add Item</a>
                   </li>
@@ -28,46 +33,45 @@
               </ul>
             </div>
       </nav>
-          </br>
-        </br>
-    </br>
     {{#each items}}
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-                <img src={{imageURL}} />
-                <div class="card-body">
-                  <h1> Item description </h1>
-                  <p class="card-text">{{description}}</p>
-                </div>
-              </div>
-            </div>
-    {{/each}}
-    <div class="container">
-      <h1> Unresolved Requests </h1>
-    </div>
-    {{#each unresolvedRequests}}
+    <div class="container item">
       <div class="container">
-        <div> Name: {{firstname}} {{lastname}}  </div>
-        <div> Reason: {{description}} </div>
-        <form action="/itemadmin/{{id}}" method="POST">
-          <div class="btn-group">
-            <button type="submit" class="btn btn-sm btn-outline-secondary" name="requestStatus" value="accepted">Approve Request</button>
-            <button type="submit" class="btn btn-sm btn-outline-secondary" name="requestStatus" value="denied">Deny Request</button>
+          <div class="imgContainer">
+            <img src={{imageURL}} class="img"/>
+            <p class="card-text">{{description}}</p>
+            <br />
           </div>
-        </form>
       </div>
     {{/each}}
-    <div class="container">
-      <h1> Resolved Requests </h1>
+      <div class="container requests">
+        <div id=unresolvedRequestsContainer>
+            <h1> Unresolved Requests </h1>
+            {{#each unresolvedRequests}}
+                <div> Name: {{firstname}} {{lastname}}  </div>
+                <div> Reason: {{description}} </div>
+                <form action="/itemadmin/{{id}}" method="POST">
+                  <div class="btn-group">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary" name="requestStatus" value="accepted">Approve Request</button>
+                    <button type="submit" class="btn btn-sm btn-outline-secondary" name="requestStatus" value="denied">Deny Request</button>
+                  </div>
+                </form>
+            {{/each}}
+        </div>
+        <br />
+        <br />
+        <div id="resolvedRequestsContainer">
+            <h1> Resolved Requests </h1>
+            {{#each resolvedRequests}}
+              <div class="containera">
+                <div> Name: {{username}} </div>
+                <div> Reason: {{description}} </div>
+                <div> Status: {{requestStatus}} </div>
+                <br />
+              </div>
+            {{/each}}
+        </div>
+      </div>
     </div>
-    {{#each resolvedRequests}}
-      <div class="container">
-        <div> Name: {{username}} </div>
-        <div> Reason: {{description}} </div>
-        <div> Status: {{requestStatus}} </div>
-      </div>
-    {{/each}}
  
   </script>
     <!-- Optional JavaScript -->

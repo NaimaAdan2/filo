@@ -39,7 +39,7 @@ app.engine('handlebars', exphbs({
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/',(req, res) => res.render('landing', { layout: false }));
+app.get('/',(req, res) => res.render('landing', { layout: false, isLoggedIn: req.session && req.session.user }));
 
 
 // items routes
