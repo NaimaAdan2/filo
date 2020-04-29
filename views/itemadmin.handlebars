@@ -49,7 +49,7 @@
             {{#each unresolvedRequests}}
                 <div> Name: {{firstname}} {{lastname}}  </div>
                 <div> Reason: {{description}} </div>
-                <form action="/requests/{{id}}" method="PUT">
+                <form action="/requests/{{id}}" method="POST">
                   <div class="btn-group">
                     <button type="submit" class="btn btn-sm btn-outline-secondary" name="requestStatus" value="accepted">Approve Request</button>
                     <button type="submit" class="btn btn-sm btn-outline-secondary" name="requestStatus" value="denied">Deny Request</button>

@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
       })
     })
     .catch(err => {
-      console.log("Could not get items: " + err))
+      console.log("Could not get items: " + err)
       res.sendStatus(500)
     });
 })

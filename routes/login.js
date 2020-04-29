@@ -20,12 +20,12 @@ router.get('/', (req, res) => {
 })
 
 /*
-Get request endpoint for logging in as a user. Checks whether there is a user that
+POST request endpoint for logging in as a user. Checks whether there is a user that
 exists with the same username and if so checks if the hash of the password matches
 that of the entry in the database. If there is no entry redirect you to the login page.
 Returns a 500 if there is an error
 */
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
   return User.findOne({where: {username: req.body.username}})
   .then(maybeuser => {
       if (maybeuser && bcrypt.compareSync(req.body.password, maybeuser.password)) {
@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
       }
   })
   .catch(err => {
-    console.log("Could not log in as a user: " + err))
+    console.log("Could not log in as a user: " + err)
     res.sendStatus(500)
   });
 })

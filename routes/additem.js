@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
   Item.create(req.body)
   .then(item => res.redirect("/items"))
   .catch(err => {
-    console.log("Could not create item entry: " + err))
+    console.log("Could not create item entry: " + err)
     res.sendStatus(500)
   });
 })

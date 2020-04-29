@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../config/database');
 const Request = require('../models/Requests.js');
 const path = require('path');
-const {isLoggedIn} = require("./util.js")
+const {isLoggedIn, isAdmin} = require("./util.js")
 
 
 /*
@@ -19,7 +19,7 @@ router.post('/:itemID', (req, res) => {
   Request.create(req.body)
     .then(item => res.redirect("/items"))
     .catch(err => {
-      console.log("Could not create a request entry: " + err))
+      console.log("Could not create a request entry: " + err)
       res.sendStatus(500)
     });
 })
@@ -39,7 +39,7 @@ router.put("/:id", (req, res) => {
     .then(foundReq => res.redirect("/itemadmin/" + foundReq.itemID))
   })
   .catch(err => {
-    console.log("Could not update request information for item: " + err))
+    console.log("Could not update request information for item: " + err)
     res.sendStatus(500)
   });
 })

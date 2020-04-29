@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
       res.render('item', { layout: false, items });
     })
     .catch(err => {
-      console.log("Could not get item: " + err))
+      console.log("Could not get item: " + err)
       res.sendStatus(500)
     });
 })

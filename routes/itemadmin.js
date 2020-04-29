@@ -39,28 +39,9 @@ router.get('/:id', (req, res) => {
       })
     })
     .catch(err => {
-      console.log("Could not get item as admin: " + err))
+      console.log("Could not get item as admin: " + err)
       res.sendStatus(500)
     });
   })
-
-/*
-Put request endpoint for updating a request for an item. Searches the request table
-for the request that has an item id matching the item id query param. Changes the request
-entry based on user payload. Redirects back to the same page to show updated request.
-*/
-router.post("/:id", (req, res) => {
-  isLoggedIn(req, res)
-  isAdmin(req, res)
-  Request.findOne({where: {id: req.params.id}})
-  .then(request => {
-    request.update({requestStatus: req.body.requestStatus})
-    .then(foundReq => res.redirect("/itemadmin/" + foundReq.itemID))
-  })
-  .catch(err => {
-    console.log("Could not update request information for item: " + err))
-    res.sendStatus(500)
-  });
-})
 
 module.exports = router;

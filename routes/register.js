@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
          }
     })
     .catch(err => {
-      console.log("Could not create a user: " + err))
+      console.log("Could not create a user: " + err)
       res.sendStatus(500)
     });
 })
