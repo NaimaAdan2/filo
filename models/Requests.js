@@ -12,7 +12,7 @@ const Request = db.define('Requests',{
     itemID:{
         type: Sequelize.INTEGER
     },
-    description:{
+    reason:{
         type: Sequelize.STRING
     },
     requestStatus:{

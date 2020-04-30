@@ -38,7 +38,9 @@
   <div class="container item">
       <div class="imgContainer">
         <img src={{imageURL}} class="img"/>
-        <p class="card-text">{{description}}</p>
+        <p class="item-text">Item colour: {{colour}}</p>
+        <p class="item-text">Item found date: {{date}}</p>
+        <p class="item-text">Item description: {{description}}</p>
         <br />
       </div>
       <div class="requestItemContainer">
@@ -52,8 +54,8 @@
           <label for="lastname"><b>Last Name</b></label>
           <input type="text" placeholder="Enter Last Name" name="lastname" required>
 
-          <label for="description"><b>description</b></label>
-          <input type="text" placeholder="Enter description" name="description" required>
+          <label for="reason"><b>Reason</b></label>
+          <input type="text" placeholder="Enter reason for request" name="reason" required>
 
           <button type="submit" class="btn btn-sm btn-outline-secondary">Request</button>
         </form>
