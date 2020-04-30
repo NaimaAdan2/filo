@@ -11,17 +11,18 @@ Get request endpoint for getting all items from the item table.
 Sends back a 500 if there is an error and a 401 if the user is not logged in
 */
 router.get('/', (req, res) => {
-    isLoggedIn(req, res)
     Item.findAll()
     .then(items => {
       isAdmin = req.session && req.session.user && req.session.user.isAdmin
       for (let item of items) {
         itemPath = isAdmin ? "/itemadmin/" + item.id : "/item/" + item.id
         item.itemPath = itemPath
+        item.isLoggedIn = req.session && req.session.user
       }
       res.render('items', {
         layout: false,
-        items
+        items,
+        isLoggedIn: req.session && req.session.user
       })
     })
     .catch(err => {
