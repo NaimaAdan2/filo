@@ -1,19 +1,23 @@
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 
-// Create postgres database on port 260912
-const sequelize = new Sequelize('FiLo','postgres','260912',{
-    host:'localhost',
-    dialect: 'postgres',
-    operatorsAliases: false,
+var database = process.env.DATABASE_URL || 'FiLo'
+var sequelize = ""
 
-    pool:{
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    },
-})
+if (process.env.DATABASE_URL) {
+    sequelize = new Sequelize(database)
+} else {
+    sequelize = new Sequelize(database, 'postgres', '', {
+      host:'localhost',
+      dialect: 'postgres',
+      operatorsAliases: false,
+      pool:{
+          max: 5,
+          min: 0,
+          acquire: 30000,
+          idle: 10000
+      }})
+}
 
 // Creates an admin user alongside creating the Users table
 const seedUsers = () => {
