@@ -22,7 +22,7 @@ const seedUsers = () => {
     firstname: "admin",
     lastname: "admin",
     // Hash the password in the database
-    password: bcrypt.hashSync("admin", 10),
+    password: bcrypt.hashSync("testAdminPassword123", 10),
     isAdmin: true
   }).then(ignored => {
     sequelize.model('Users').create({
@@ -30,7 +30,7 @@ const seedUsers = () => {
       firstname: "suaad",
       lastname: "suldan",
       // Hash the password in the database
-      password: bcrypt.hashSync("123", 10),
+      password: bcrypt.hashSync("testPassword123", 10),
       isAdmin: false
     })
   })
