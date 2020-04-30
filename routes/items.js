@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
       for (let item of items) {
         itemPath = isAdmin ? "/itemadmin/" + item.id : "/item/" + item.id
         item.itemPath = itemPath
-        console.log("Item Path: " + item.itemPath)
       }
       res.render('items', {
         layout: false,
