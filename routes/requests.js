@@ -26,11 +26,11 @@ router.post('/:itemID', (req, res) => {
 
 
 /*
-Put request endpoint for updating a request for an item. Searches the request table
+Post request endpoint for updating a request for an item. Searches the request table
 for the request that has an item id matching the item id query param. Changes the request
 entry based on user payload. Redirects back to the same page to show updated request.
 */
-router.put("/:id", (req, res) => {
+router.post("/modify/:id", (req, res) => {
   isLoggedIn(req, res)
   isAdmin(req, res)
   Request.findOne({where: {id: req.params.id}})
@@ -39,7 +39,6 @@ router.put("/:id", (req, res) => {
     .then(foundReq => res.redirect("/itemadmin/" + foundReq.itemID))
   })
   .catch(err => {
-    console.log("Could not update request information for item: " + err)
     res.sendStatus(500)
   });
 })

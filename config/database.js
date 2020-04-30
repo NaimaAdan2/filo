@@ -24,6 +24,15 @@ const seedUsers = () => {
     // Hash the password in the database
     password: bcrypt.hashSync("admin", 10),
     isAdmin: true
+  }).then(ignored => {
+    sequelize.model('Users').create({
+      username: "suaadsuldan",
+      firstname: "suaad",
+      lastname: "suldan",
+      // Hash the password in the database
+      password: bcrypt.hashSync("123", 10),
+      isAdmin: false
+    })
   })
 }
 
