@@ -48,7 +48,7 @@
             <h1> Unresolved Requests </h1>
             {{#each unresolvedRequests}}
                 <div> Name: {{firstname}} {{lastname}}  </div>
-                <div> Reason: {{description}} </div>
+                <div> Reason: {{reason}} </div>
                 <form action="/requests/modify/{{id}}" method="POST">
                   <div class="btn-group">
                     <button type="submit" class="btn btn-sm btn-outline-secondary" name="requestStatus" value="accepted">Approve Request</button>
@@ -64,7 +64,7 @@
             {{#each resolvedRequests}}
               <div class="containera">
                 <div> Name: {{firstname}} {{lastname}} </div>
-                <div> Reason: {{description}} </div>
+                <div> Reason: {{reason}} </div>
                 <div> Status: {{requestStatus}} </div>
                 <br />
               </div>
