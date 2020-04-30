@@ -70,14 +70,6 @@ const seedUsers = () => {
       description: "Golden/Silver house keys",
       imageURL: "https://www.picklock24.com/media/image/product/84/md/bump-key-set-europe-supplement-14-keys.jpg"
     })})
-    .then(ignored => {
-      sequelize.model('Items').create({
-        category: "Person",
-        colour: "White",
-        date: "07/03/2007",
-        description: "Young maddie, lost in my hotel room",
-        imageURL: "https://www.thesun.co.uk/wp-content/uploads/2020/04/NINTCHDBPICT000308321581.jpg"
-      })})
 }
 
 // Create tables on startup if they don't exist
